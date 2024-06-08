@@ -1,7 +1,7 @@
 ### Project Title
 Airline Passenger Satisfaction - What factors will enhance airline passenger satisfaction? 
 
-**Author**
+**Author**<br>
 Ben Harosh
 
 #### Rationale
