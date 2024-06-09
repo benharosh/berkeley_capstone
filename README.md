@@ -46,25 +46,30 @@ Feature list:
 |Arrival Delay in Minutes	      |Total arrival delay in minutes.                                             |
 
 ### Methodology
-Classification ML techniques to classify airline passenger satisfaction based on input features as flight delay times, flight distance and passenger type, combined with survey data collected from the airline passengers regarding their satisfactions (regarding food, seat comfort, etc.).
+Classification ML techniques to classify airline passenger satisfaction based on input features as flight delay times, flight distance and passenger type, combined with survey data collected from the airline passengers regarding their satisfactions (regarding food, seat comfort, etc.). We utilized simple classification models as 
 
 ### Summary of Findings
 
 ### Detailed Explanation of Results
+#### Modeling
 ##### EDA modeling
 Since the satisfaction and dissatisfaction classes are fairly balanced, and since we don't place significant emphasis on misclassification (recall or precision), but rather prioritize achieving accurate classification, we will focus on the accuracy metric for comparing the different classification models. With that in mind, the best classifier boasting the highest test classification accuracy is the RandomForestClassifier, achieving an accuracy of 95.60%. Following closely in second place is SVM with a test accuracy of 94.1%.
 ![EDA Classification Models Performance Comparision](img/classification_results.png "EDA Classification Models Performance Comparision")
-#### GridSearch Results
+##### GridSearch Results
 We focused on the 4 top performing models from EDA phase and ran GridSearchCV with different grid parameters in order to fine-tune the model training phase. Here are the results:
 ![GridSearchCV Classification Comparision](img/gridsearch_results_classifiers.png "GridSearchCV Classification Comparision")
-#### Neural Network Results
+##### Neural Network Results
 We constructed and trained two distinct types of neural networks to improve classification results. Initially, we developed a simple network comprising a single layer of hidden units (`NN_Simple` in the chart), followed by a more complex network featuring three layers of hidden units with added regularization (`NN_Complex` in the chart). Subsequently, we conducted a GridSearchCV to fine-tune the parameters of the more complex network (`NN_GridSearchCV` in the chart). Here are the outcomes:
 ![GridSearchCV Classification Comparision](img/results_final.png "Final Classification Comparision")
 We observed a notable improvement in the test accuracy of the best model, reaching `95.80%` (with a peak of `95.90%` during training on the test set). This enhancement was accomplished through the utilization of a more complex neural network model, coupled with fine-tuning via GridSearchCV. Overall, both the more complex neural network model and its fine-tuned counterpart outperformed the other classification models, albeit not by substantial margins. 
 
+#### Feature Importance
+We employed two distinct methods to extract the most important features from the trained models. Through our analysis, we identified the following features as playing the most significant role in this classification problem:
+
+
+
 #### Next steps
-On the data science dize, fine-tuning neural network might lead to better model accuracy.
-Also, working on translating this report to actionable item with the airline company.
+Working on translating this report to actionable item with the airline company.
 On the business side, consider consolidating some of the customer survey questions and numerical data that seems redundant (both arrival and departure delay metrics) due to high similarity and maybe opportuniny to replace these question with other meterics required to increase cutomer satisfaction. 
 
 ### Outline of project
@@ -72,3 +77,4 @@ On the business side, consider consolidating some of the customer survey questio
 - [Link to capstone notebook on GitHub Dev](https://github.dev/benharosh/berkeley_capstone/blob/master/capstone-final.ipynb)
 
 #### Contact and Further Information
+Please feel free to contact me for further discussion at `benharosh@gmail.com`
