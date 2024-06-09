@@ -50,6 +50,34 @@ Classification ML techniques to classify airline passenger satisfaction based on
 
 ### Summary of Findings
 
+#### Data characteristics:
+* The dataset seemed to be heavily focused on loyal customers - survey boasted over five times loyal customers than disloyal ones
+* The dataset had customers who were on business travel more than double the number of those who were on personal travel
+* The dataset maintained a balanced representation between economy and business class passengers. However, less than 10% of the airline passengers in the data set were flying economy plus
+* Dataset was heavily focused on short to mid range flights with most of the data collected from passenger who traveled less than 4000 miles
+
+#### Findings
+* Air travelers who flew mid-range flights (1000-3000 miles) exhibited heightened levels of dissatisfaction compared to those on shorter or longer flights
+* Departure and arrival delays exceeding 20 minutes were found to correlate with increased dissatisfaction levels, contrasting with shorter delays. There was almost no dissatisfaction difference between departure and arrival delays, which seems readonable since those are metrics that are highly correlated to begin with   
+* Loyal customers demonstrated significantly higher satisfaction rates compared to disloyal air passengers, highlighting the importance of customer loyalty
+* Customers flying Business Class reported a higher satisfaction rate 71%, surpassing the aggregated satisfaction average (55%)
+* Customers traveling for personal reasons exhibited a lower satisfaction rate of 48% compared to the aggregated satisfaction average (55%)
+* Disloyal customers reported a significantly lower satisfaction rate of 24% compared to the overall satisfaction average (55%)
+* Seat comfort and In-flight Entertainment as the most influential features contributing to satisfaction
+* Although rated high by many customers, cleanliness did not emerge as a significant factor to determine satisfaction 
+* Customers on personal travel were found had higher satisfaction rates
+Ease of pre-flight service as online booking and customer support played a role in enhancing customer satisfaction
+
+#### Action Items
+Working on translating this report to actionable item with the airline company, that will include:
+  - Gather more data on disloyal customers in the future, in order to understand better the reason for their high diasstisfaction rate
+  - Understand how to improve the experience of disloyal customers, maybe in ways of personal promotions and provide them with more features that contributed to higher satisfaction - as in-flight entertainment, in-flight food and drink and making sure that their pre-flight experience is positive (baggage handling and checkin services) 
+  - Improve seat comfort as a way to increase customer satisfaction. Dat ahs shown that even customers who ranked it mediocore (3 out of 5) - had 2 times dissatisfaction rate compated to the overall rate
+  - Enhance entertainment and WiFi services during flight as those contributed to overall higher satisfaction rates from customers who enjoyed them. We also noticed higher disatisfaction rate from customers who ranked their experience as mediocore negative with those services
+  - Expand pre-flight online booking and support and solidify ground services (checkin and baggage handling) as a way to keep and increase satisfaction rates
+  - Remove one out of the two customer survey questions regarding departure and arrival delay in minutes, since the answers on these were highly correlated (over 90%), which seems reasonale since both metrics are highly correlated to begin with
+  - 
+
 ### Detailed Explanation of Results
 #### Modeling
 ##### EDA modeling
@@ -65,14 +93,20 @@ We observed a notable improvement in the test accuracy of the best model, reachi
 
 #### Feature Importance
 We employed two distinct methods to extract the most important features from the trained models. Through our analysis, we identified the following features as playing the most significant role in this classification problem:
+* Seat Comfort
+* Inflight Entrtainment
+* Ease of Online Booking
+* On-Board Service
+* Online Support
+* Checkin Service
 
 ![Feature Importance Results](img/feature_importance.png "Feature Importance")
 ![Importance Mean Results](img/importance_mean.png "Importance Mean")
 
-
 #### Next steps
-Working on translating this report to actionable item with the airline company.
-On the business side, consider consolidating some of the customer survey questions and numerical data that seems redundant (both arrival and departure delay metrics) due to high similarity and maybe opportuniny to replace these question with other meterics required to increase cutomer satisfaction. 
+* Follow up on the metioned action items
+* Improve the Neural Network model and fine-tune it to have higher accuracy of predicting satisfaction
+* Explore the `shap` library to better understand feature importance, alongsode the other feature importance methods I used above
 
 ### Outline of project
 - [Link to capstone notebook](https://github.com/benharosh/berkeley_capstone/blob/master/capstone-final.ipynb)
