@@ -66,6 +66,8 @@ We observed a notable improvement in the test accuracy of the best model, reachi
 #### Feature Importance
 We employed two distinct methods to extract the most important features from the trained models. Through our analysis, we identified the following features as playing the most significant role in this classification problem:
 
+![Feature Importance Results](img/feature_importance.png "Feature Importance")
+![Importance Mean Results](img/importance_mean.png "Importance Mean")
 
 
 #### Next steps
