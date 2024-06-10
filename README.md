@@ -21,11 +21,11 @@ In the competitive landscape of the airline industry, customer satisfaction is a
 Find the factors that contribute to airline customer satisfaction and tailor their services accordingly to enhance the overall customer experience
 
 ### Data Sources
-Kaggle data Source “Airline Customer Satisfaction”<br>
+Kaggle data source “Airline Customer Satisfaction”<br>
 https://www.kaggle.com/datasets/raminhuseyn/airline-customer-satisfaction/data
 
 ### Data Description
-The dataset comprises 129,880 records, with a small number (~300) of missing values. It includes 21 features, encompassing the target variable `satisfaction``. Seven features were collected by the airline, such as customer age, flight distance, arrival and departure delays (numerical), as well as customer type, type of travel, and class of travel (categorical features). The remaining 13 features consist of customer survey data, covering in-flight and pre-flight services, features on the plane, and ground services. Additionally, there are customer survey features that were collected regarding the booking process.
+The dataset comprises 129,880 records, with a small number (~300) of missing values. It includes 21 features, encompassing the target variable `satisfaction`. Seven features were collected by the airline, such as customer age, flight distance, arrival and departure delays (numerical), as well as customer type, type of travel, and class of travel (categorical features). The remaining 13 features consist of customer survey data, covering the customer ratings of the flight booking process, support services, ground services, pre-flight and in-flight services.
 
 A full feature list can be found [here](./FEATURES.md)
 
