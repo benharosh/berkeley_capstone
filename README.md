@@ -52,7 +52,7 @@ Classification Methods Used:
 ### Summary of Findings
 
 #### Data characteristics:
-* The dataset seemed to be slanted towards loyal customers - survey boasted over for times loyal customers (`81.69%`) than disloyal ones (`18.31%`)
+* The dataset seemed to be slanted towards loyal customers - survey boasted over four times loyal customers (`81.69%`) than disloyal ones (`18.31%`)
 * The dataset had customers who were on business travel more than double the number of those who were on personal travel
 * The dataset maintained a balanced representation between economy (`44.84%`) and business class (`47.92%`) passengers. However, only `7.23%` of the airline passengers in the data set were flying economy plus
 * Dataset was heavily focused on customers who taken short to mid range flights with most of the data collected from customers who traveled less than 4000 miles, where most of them(`67.42%`) flew 1000-3000 miles
