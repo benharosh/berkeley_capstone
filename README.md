@@ -69,14 +69,13 @@ Classification ML techniques to classify airline passenger satisfaction based on
 Ease of pre-flight service as online booking and customer support played a role in enhancing customer satisfaction
 
 #### Action Items
-Working on translating this report to actionable item with the airline company, that will include:
   - Gather more data on disloyal customers in the future, in order to understand better the reason for their high diasstisfaction rate
   - Understand how to improve the experience of disloyal customers, maybe in ways of personal promotions and provide them with more features that contributed to higher satisfaction - as in-flight entertainment, in-flight food and drink and making sure that their pre-flight experience is positive (baggage handling and checkin services) 
   - Improve seat comfort as a way to increase customer satisfaction. Dat ahs shown that even customers who ranked it mediocore (3 out of 5) - had 2 times dissatisfaction rate compated to the overall rate
   - Enhance entertainment and WiFi services during flight as those contributed to overall higher satisfaction rates from customers who enjoyed them. We also noticed higher disatisfaction rate from customers who ranked their experience as mediocore negative with those services
   - Expand pre-flight online booking and support and solidify ground services (checkin and baggage handling) as a way to keep and increase satisfaction rates
   - Remove one out of the two customer survey questions regarding departure and arrival delay in minutes, since the answers on these were highly correlated (over 90%), which seems reasonale since both metrics are highly correlated to begin with
-  - 
+  
 
 ### Detailed Explanation of Results
 #### Modeling
