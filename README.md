@@ -70,7 +70,7 @@ Classification Methods Used:
 * Customers on personal travel were found had higher satisfaction rates
 Ease of pre-flight service as online booking and customer support played a role in enhancing customer satisfaction
 
-#### Recommendation
+#### Recommendations
   - Gather more data on disloyal customers in the future, in order to understand better the reason for their high diasstisfaction rate
   - Understand how to improve the experience of disloyal customers, maybe in ways of personal promotions and provide them with more features that contributed to higher satisfaction - as in-flight entertainment, in-flight food and drink and making sure that their pre-flight experience is positive (baggage handling and checkin services) 
   - Improve seat comfort as a way to increase customer satisfaction. Dat ahs shown that even customers who ranked it mediocore (3 out of 5) - had 2 times dissatisfaction rate compated to the overall rate
@@ -81,16 +81,17 @@ Ease of pre-flight service as online booking and customer support played a role 
 
 ### Detailed Explanation of Results
 #### Modeling
-##### EDA modeling
+##### Basic classification modeling
 Since the satisfaction and dissatisfaction classes are fairly balanced, and since I don't place significant emphasis on misclassification (recall or precision), but rather prioritize achieving accurate classification, I will focus on the accuracy metric for comparing the different classification models. With that in mind, the best classifier boasting the highest test classification accuracy is the RandomForestClassifier, achieving an accuracy of 95.60%. Following closely in second place is SVM with a test accuracy of 94.1%.
 ![EDA Classification Models Performance Comparision](img/classification_results.png "EDA Classification Models Performance Comparision")
-##### GridSearch Results
-I focused on the 4 top performing models from EDA phase and ran GridSearchCV with different grid parameters in order to fine-tune the model training phase. Here are the results:
+##### GridSearchCV with leading classification models
+I focused on the 4 top performing models from basic classification phase and ran GridSearchCV with different grid parameters in order to fine-tune the model training phase. Here are the results:
 ![GridSearchCV Classification Comparision](img/gridsearch_results_classifiers.png "GridSearchCV Classification Comparision")
-##### Neural Network Results
+The best classifier boasting the highest test classification accuracy was again the RandomForestClassifier with a slighly improved accuracy of `95.66%` 
+##### Neural Network modeling
 I constructed and trained two distinct types of neural networks to improve classification results. Initially, I developed a simple network comprising a single layer of hidden units (`NN_Simple` in the chart), followed by a more complex network featuring three layers of hidden units with added regularization (`NN_Complex` in the chart). Subsequently, I conducted a GridSearchCV to fine-tune the parameters of the more complex network (`NN_GridSearchCV` in the chart). Here are the outcomes:
 ![GridSearchCV Classification Comparision](img/results_final.png "Final Classification Comparision")
-I observed a notable improvement in the test accuracy of the best model, reaching `95.80%` (with a peak of `95.90%` during training on the test set). This enhancement was accomplished through the utilization of a more complex neural network model, coupled with fine-tuning via GridSearchCV. Overall, both the more complex neural network model and its fine-tuned counterpart outperformed the other classification models, albeit not by substantial margins. 
+I observed a significant enhancement in the test accuracy of the more complex neural network model, achieving `95.83%` (with a peak of `95.90%` during training on the test set). Both the more complex neural network model and its fine-tuned counterpart via `GridSearchCV` showcased superior performance compared to other classification models, albeit not by substantial margins. It's worth noting that due to limitations in computational resources, I could only execute a partial version of the grid parameters I had planned to test. Consequently, further fine-tuning with additional grid parameters is expected to yield even greater improvements in the accuracy of the best model.
 
 #### Feature Importance
 I employed two distinct methods to extract the most important features from the trained models. Through our analysis, I identified the following features as playing the most significant role in this classification problem:
@@ -105,7 +106,7 @@ I employed two distinct methods to extract the most important features from the 
 ![Importance Mean Results](img/importance_mean.png "Importance Mean")
 
 #### Next steps
-* Follow up on the metioned action items
+* Follow up on the mentioned recommendations 
 * Improve the Neural Network model and fine-tune it to have higher accuracy of predicting satisfaction
 * Explore the `shap` library to better understand feature importance, alongsode the other feature importance methods I used above
 
@@ -114,4 +115,4 @@ I employed two distinct methods to extract the most important features from the 
 - [Link to capstone notebook on GitHub Dev](https://github.dev/benharosh/berkeley_capstone/blob/master/capstone-final.ipynb)
 
 #### Contact and Further Information
-Please feel free to contact me for further discussion at `benharosh@gmail.com`
+`benharosh@gmail.com`
