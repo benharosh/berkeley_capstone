@@ -1,3 +1,7 @@
+<div align="center">
+	<img src="img/cus_sat.jpeg">
+</div>
+
 ### Unlocking Airline Passenger Satisfaction: Key Factors for Enhanced Experience
 
 **Author**<br>
