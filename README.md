@@ -30,7 +30,7 @@ The dataset comprises 129,880 records, with a small number (~300) of missing val
 
 A full feature list can be found [here](./FEATURES.md)
 
-### Methodolog
+### Methodology
 Exploratory Data Analysis:
 * Data perp, cleaning nulls and duplicates check
 * Analyzing the distribution of the target class
