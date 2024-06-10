@@ -71,11 +71,11 @@ Classification Methods Used:
 
 #### Recommendations
   - Gather more data on disloyal customers in the future, in order to understand better the reason for their high dissatisfaction rate
-  - Understand how to improve the experience of disloyal customers, maybe in ways of personal promotions and provide them with more features that contributed to higher satisfaction - as in-flight entertainment, in-flight food and drink and making sure that their pre-flight experience is positive (baggage handling and check-in services) 
-  - Improve seat comfort as a way to increase customer satisfaction. Dat ahs shown that even customers who ranked it mediocre (3 out of 5) - had 2 times dissatisfaction rate compared to the overall rate
-  - Enhance entertainment and WiFi services during flight as those contributed to overall higher satisfaction rates from customers who enjoyed them. I also noticed higher dissatisfaction rate from customers who ranked their experience as mediocre negative with those services
-  - Expand pre-flight online booking and support and solidify ground services (check-in and baggage handling) as a way to keep and increase satisfaction rates
-  - Remove one out of the two customer survey questions regarding departure and arrival delay in minutes, since the answers on these were highly correlated (over 90%), which seems reasonable since both metrics are highly correlated to begin with
+  - Understand how to improve the experience of disloyal customers, maybe in ways of personal promotions and provide them with more features that contributed to higher satisfaction - as in-flight `entertainment`, in-flight `food and drink` and making sure that their pre-flight experience is positive, including `baggage handling` and other check-in services
+  - Consider finding ways to improve `seat comfort` as a way to increase customer satisfaction. Data has shown that even customers who ranked seat comfort as mediocre (rating of 3 out of 5) - had 2 times dissatisfaction rate compared to the overall rate. It might worth also collecting data on the plane model, and see if there's a correlation between plane models and satisfaction from `seat comfort`, in order to understand better which planes to consider as upgrade candidates
+  - Enhance `entertainment` and `WiFi` services during flight as those contributed to overall higher satisfaction rates from customers who enjoyed them. I also noticed higher dissatisfaction rate from customers who ranked their experience as mediocre to negative with those services
+  - Expand pre-flight `online booking` and `online support` and solidify ground services - check-in and `baggage handling` - as a way to keep and increase satisfaction rates
+  - Remove one of two customer survey questions regarding departure and arrival delay in minutes influence on satisfaction, since the answers on these were highly correlated (over 90%). That seems reasonable since both metrics are highly correlated to begin with - flights which left origin late will arrive to destination late
   
 
 ### Detailed Explanation of Results
@@ -84,16 +84,18 @@ Classification Methods Used:
 Since the satisfaction and dissatisfaction classes are fairly balanced, and since I don't place significant emphasis on misclassification (recall or precision), but rather prioritize achieving accurate classification, I will focus on the accuracy metric for comparing the different classification models. With that in mind, the best classifier boasting the highest test classification accuracy is the RandomForestClassifier, achieving an accuracy of 95.60%. Following closely in second place is SVM with a test accuracy of 94.1%.
 ![EDA Classification Models Performance Comparison](img/classification_results.png "EDA Classification Models Performance Comparison")
 ##### GridSearchCV with leading classification models
-I focused on the 4 top performing models from basic classification phase and ran GridSearchCV with different grid parameters in order to fine-tune the model training phase. Here are the results:
+I focused on the 4 top performing models from basic classification phase and ran GridSearchCV with different grid parameters in order to fine-tune the model training phase. Here are the results:<br>
+
 ![GridSearchCV Classification Comparison](img/gridsearch_results_classifiers.png "GridSearchCV Classification Comparison")
 The best classifier boasting the highest test classification accuracy was again the RandomForestClassifier with a slightly improved accuracy of `95.66%` 
 ##### Neural Network modeling
-I constructed and trained two distinct types of neural networks to improve classification results. Initially, I developed a simple network comprising a single layer of hidden units (`NN_Simple` in the chart), followed by a more complex network featuring three layers of hidden units with added regularization (`NN_Complex` in the chart). Subsequently, I conducted a GridSearchCV to fine-tune the parameters of the more complex network (`NN_GridSearchCV` in the chart). Here are the outcomes:
+I constructed and trained two distinct types of neural networks to improve classification results. Initially, I developed a simple network comprising a single layer of hidden units (`NN_Simple` in the chart), followed by a more complex network featuring three layers of hidden units with added regularization (`NN_Complex` in the chart). Subsequently, I conducted a GridSearchCV to fine-tune the parameters of the more complex network (`NN_GridSearchCV` in the chart). Here are the outcomes:<br>
+
 ![GridSearchCV Classification Comparison](img/results_final.png "Final Classification Comparison")
-I observed a significant enhancement in the test accuracy of the more complex neural network model, achieving accuracy of `95.83%` (with a peak of `95.90%` during training on the test set). Both the more complex neural network model and its fine-tuned counterpart via `GridSearchCV` showcased superior performance compared to other classification models, albeit not by substantial margins. It's worth noting that due to limitations in computational resources, I could only execute a partial version of the grid parameters I had planned to test. Consequently, further fine-tuning with additional grid parameters is expected to yield even greater improvements in the accuracy of the best model.
+I observed a small enhancement in the test accuracy of the more complex neural network model, achieving accuracy of `95.83%` (with a peak of `95.90%` during training on the test set). Both the more complex neural network model and its fine-tuned counterpart via `GridSearchCV` showcased superior performance of over `95.80%`, when compared to the other classification models, albeit not by substantial margins. It's worth noting that due to limitations in computational resources, I could only execute a partial version of the grid parameters I had planned to test. Consequently, further fine-tuning with additional grid parameters is expected to yield even greater improvements in the accuracy of the best model using neural networks
 
 #### Feature Importance
-I employed two distinct methods to extract the most important features from the trained models. Through our analysis, I identified the following features as playing the most significant role in this classification problem:
+I employed two distinct methods to extract the most important features from the trained models - feature importance that was given directly from the fitted model, and permutation importance using `sklearn`'s permutation_importance method. Through our analysis, I identified the following features as playing the most significant role in this classification problem:
 * Seat Comfort
 * Inflight Entrainment
 * Ease of Online Booking
@@ -102,7 +104,7 @@ I employed two distinct methods to extract the most important features from the 
 * Check-in Service
 
 ![Feature Importance Results](img/feature_importance.png "Feature Importance")
-![Importance Mean Results](img/importance_mean.png "Importance Mean")
+![Permutation Importance Results](img/permutaion_importance.png "Permutation Importance")
 
 #### Next steps
 * Follow up on the mentioned recommendations 
