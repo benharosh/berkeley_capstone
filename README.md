@@ -72,6 +72,7 @@ Classification Methods Used:
 * Although rated high by many customers, cleanliness did not emerge as a significant indicative factor to determine satisfaction/dissatisfaction
 * Customers on personal travel were found had higher satisfaction rates
 * Ease of pre-flight service as online booking and customer support played a role in enhancing customer satisfaction
+* Customers that are > 40 and < 63 showed higher satisfaction perdentage (`67%`) than the general average staisfaction rate (`55%`). Customers younger than 40 and over the age of 63 showed higher levels of dissatisfaction compared to the general average
 
 #### Recommendations
   - Gather more data on disloyal customers in the future, in order to understand better the reason for their high dissatisfaction rate
