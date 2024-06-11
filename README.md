@@ -116,7 +116,7 @@ I employed two distinct methods to extract the most important features from the 
 
 #### Next steps
 * Follow up on the mentioned recommendations 
-* Improve the complex Neural Network model by fine-tune it to have higher accuracy of predicting satisfaction
+* Improve the complex Neural Network model by fine-tuning it to have higher accuracy of predicting satisfaction
 * Explore the `shap` library to better understand feature importance, alongside the other feature importance methods I used above
 
 ### Outline of project
