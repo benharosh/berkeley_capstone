@@ -9,13 +9,13 @@ Ben Harosh
 
 ### Executive summary
 
-This capstone project delves into Machine Learning techniques aimed at classifying the satisfaction levels of airline passengers, determining whether customers will be satisfied or dissatisfied. The dataset for this task encompasses three types of features:
+This capstone project delves into Machine Learning techniques to classify the satisfaction of airline passengers, aimed at determining whether customers will be satisfied or dissatisfied with the airline services. The dataset that was collected for this task encompasses three types of input data:
 
-* Numerical data, including customer age and distance flown.
-* Categorical data, such as customer loyalty, class of travel, and type of travel.
-* Customer survey data, comprising ratings provided by customers on the booking process, pre-flight, and in-flight services.
+* Numerical data, including customer age, flight delays and distance flown
+* Categorical data, such as customer loyalty, class of travel, and type of travel
+* Customer survey data, comprising ratings provided by customers on the booking process, ground services, pre-flight and in-flight services
 
-The project aims to discern which features contribute to customer satisfaction and which may lead to dissatisfaction. By thoroughly analyzing the dataset, I will construct a predictive model capable of accurately predicting whether a given customer will be satisfied or dissatisfied with the airline service. Subsequently, I will conduct an in-depth analysis to identify the features that have the greatest impact on customer satisfaction. Based on this analysis, recommendations will be provided to the airline on areas (features) to prioritize in order to enhance customer satisfaction. Identifying these features holds significant importance for the airline, as it can aid in customer retention, expansion of the customer base, and ultimately, revenue growth.
+The project aims to discern which factors contribute to customer satisfaction and which may lead to dissatisfaction. By thoroughly analyzing the dataset, I will construct a predictive model capable of accurately predicting whether a given customer will be satisfied or dissatisfied with the airline service. Subsequently, I will conduct an in-depth analysis to identify the factors that have the greatest impact on customer satisfaction. Based on this analysis, recommendations will be provided to the airline on service areas and/or factors to prioritize in order to enhance customer satisfaction. Identifying these factors holds significant importance for the airline, as it can aid in customer retention, expansion of the customer base, and ultimately, revenue growth.
 
 
 ### Rationale
@@ -32,6 +32,12 @@ https://www.kaggle.com/datasets/raminhuseyn/airline-customer-satisfaction/data
 The dataset comprises 129,880 records, with a small number (~300) of missing values. It includes 21 features, encompassing the target variable `satisfaction`. Seven features were collected by the airline, such as customer age, flight distance, arrival and departure delays (numerical), as well as customer type, type of travel, and class of travel (categorical features). The remaining 13 features consist of customer survey data, covering the customer ratings of the flight booking process, support services, ground services, pre-flight and in-flight services.
 
 A full feature list can be found [here](./FEATURES.md)
+
+#### Data characteristics:
+* The dataset is slanted towards loyal customers - survey boasted over four times loyal customers (`81.69%`) than disloyal ones (`18.31%`)
+* The dataset exhibits a skew towards customers traveling for business, comprising over double (`69%`) the number of those traveling for personal reasons (`31%`)
+* The dataset maintains a balanced representation between economy (`44.84%`) and business class (`47.92%`) passengers. However, only `7.23%` of the airline passengers in the data set were flying economy plus
+* The dataset primarily concentrates on customers who took short to mid-range flights, with the majority of data collected from those traveling less than 4000 miles. Specifically, approximately `67.42%` of customers flew distances ranging from 1000 to 3000 miles
 
 ### Methodology
 Exploratory Data Analysis:
@@ -55,12 +61,6 @@ Classification Methods Used:
 
 ### Summary of Findings
 
-#### Data characteristics:
-* The dataset is slanted towards loyal customers - survey boasted over four times loyal customers (`81.69%`) than disloyal ones (`18.31%`)
-* The dataset exhibits a skew towards customers traveling for business, comprising over double (`69%`) the number of those traveling for personal reasons (`31%`)
-* The dataset maintains a balanced representation between economy (`44.84%`) and business class (`47.92%`) passengers. However, only `7.23%` of the airline passengers in the data set were flying economy plus
-* The dataset primarily concentrates on customers who took short to mid-range flights, with the majority of data collected from those traveling less than 4000 miles. Specifically, approximately `67.42%` of customers flew distances ranging from 1000 to 3000 miles.
-
 #### Findings
 * Air travelers who flew mid-range flights (1000-3000 miles) exhibited heightened levels of dissatisfaction compared to those on shorter or longer flights
 * Departure and arrival delays exceeding 20 minutes were found to correlate with increased dissatisfaction levels, contrasting with shorter delays. There was almost no dissatisfaction difference between departure and arrival delays, which seems reasonable since those are metrics that are highly correlated (over `90%`)to begin with   
@@ -72,32 +72,35 @@ Classification Methods Used:
 * Although rated high by many customers, cleanliness did not emerge as a significant indicative factor to determine satisfaction/dissatisfaction
 * Customers on personal travel were found had higher satisfaction rates
 * Ease of pre-flight service as online booking and customer support played a role in enhancing customer satisfaction
-* Customers that are > 40 and < 63 showed higher satisfaction perdentage (`67%`) than the general average staisfaction rate (`55%`). Customers younger than 40 and over the age of 63 showed higher levels of dissatisfaction compared to the general average
+* Customers aged between 40 and 63 exhibited a higher satisfaction percentage (`67%`) compared to the general average satisfaction rate (`55%`). Conversely, customers younger than 40 and those older than 63 expressed higher levels of dissatisfaction compared to the general average.
 
 #### Recommendations
-  - Gather more data on disloyal customers in the future, in order to understand better the reason for their high dissatisfaction rate
-  - Understand how to improve the experience of disloyal customers, maybe in ways of personal promotions and provide them with more features that contributed to higher satisfaction - as in-flight `entertainment`, in-flight `food and drink` and making sure that their pre-flight experience is positive, including `baggage handling` and other check-in services
-  - Consider finding ways to improve `seat comfort` as a way to increase customer satisfaction. Data has shown that even customers who ranked seat comfort as mediocre (rating of 3 out of 5) - had 2 times dissatisfaction rate compared to the overall rate. It might worth also collecting data on the plane model, and see if there's a correlation between plane models and satisfaction from `seat comfort`, in order to understand better which planes to consider as upgrade candidates
-  - Enhance `entertainment` and `WiFi` services during flight as those contributed to overall higher satisfaction rates from customers who enjoyed them. I also noticed higher dissatisfaction rate from customers who ranked their experience as mediocre to negative with those services
-  - Expand pre-flight `online booking` and `online support` and solidify ground services - check-in and `baggage handling` - as a way to keep and increase satisfaction rates
-  - Remove one of two customer survey questions regarding departure and arrival delay in minutes influence on satisfaction, since the answers on these were highly correlated (over 90%). That seems reasonable since both metrics are highly correlated to begin with - flights which left origin late will arrive to destination late
-  
+  - Given that disloyal customers exhibited a notably high dissatisfaction rate, albeit representing only `18.31%` of the dataset entries, it would be prudent to address this imbalance. Future surveys should focus on gathering more data from this specific group to gain deeper insights into the reasons behind their elevated dissatisfaction levels
+  - Enhancing the experience for disloyal customers may involve tailored strategies such as personalized promotions and bolstering features known to drive satisfaction, such as `in-flight entertainment` and `food and drink` offerings. Moreover, ensuring a positive pre-flight experience, encompassing efficient `baggage handling` and streamlined `check-in` services, can further elevate satisfaction levels for this segment
+  - Exploring avenues to enhance `seat comfort` could significantly elevate overall customer satisfaction levels. Analysis reveals that customers rating `seat comfort` as moderate (3 out of 5) exhibited twice the dissatisfaction rate compared to the overall average. Collecting data on plane models could further enrich insights, potentially unveiling correlations between specific aircraft models and seat comfort satisfaction. This information can inform decisions on prioritizing aircraft upgrades to better cater to customer preferences
+  - Elevate the in-flight experience by enhancing `entertainment` and `WiFi` services, which have shown to positively influence overall satisfaction rates among passengers who enjoy them. Additionally, address the higher dissatisfaction rate observed among customers who rated their experience with these services as mediocre to negative, ensuring that these offerings meet or exceed expectations to uphold satisfaction levels
+  - Broaden the scope of pre-flight services by enhancing `online booking` and `online support` functionalities. Additionally, bolster ground services such as `check-in` procedures and `baggage handling` to fortify overall customer satisfaction rates. Strengthening these areas not only fosters existing customer loyalty but also cultivates potential for increased satisfaction among passengers
+  - Considering the high correlation (over 90%) between `Departure Delay in Minutes` and `Arrival Delay in Minutes`, and their redundant contribution to the analysis of customer satisfaction, it's sensible to remove one of these numerical features. Given their inherent logical relationship — flights departing late tend to arrive late — retaining both metrics doesn't significantly deepen the understanding of customer satisfaction from a data perspective
 
 ### Detailed Explanation of Results
+
 #### Modeling
+##### Deciding on a scoring metric
+Given the fairly balanced distribution of satisfaction and dissatisfaction classes, and my prioritization of accurate classification over focusing on false-negatives or false-positives (recall or precision), I'll concentrate on the `accuracy` metric. Particularly, I'll assess the `test accuracy` against the dedicated test set to compare the performance of various classification models
+
 ##### Basic classification modeling
-Since the satisfaction and dissatisfaction classes are fairly balanced, and since I don't place significant emphasis on misclassification (recall or precision), but rather prioritize achieving accurate classification, I will focus on the accuracy metric for comparing the different classification models. With that in mind, the best classifier boasting the highest test classification accuracy is the RandomForestClassifier, achieving an accuracy of 95.60%. Following closely in second place is SVM with a test accuracy of 94.1%.
-![EDA Classification Models Performance Comparison](img/classification_results.png "EDA Classification Models Performance Comparison")
+The best classifier boasting the highest test classification accuracy was the RandomForestClassifier, achieving an accuracy of `95.54%`. Following closely in second place is SVM with a test accuracy of `94.0%`.
+![Basic Classification Models Performance Comparison](img/classification_results.png "Basic Classification Models Performance Comparison")
 ##### GridSearchCV with leading classification models
 I focused on the 4 top performing models from basic classification phase and ran GridSearchCV with different grid parameters in order to fine-tune the model training phase. Here are the results:<br>
 
 ![GridSearchCV Classification Comparison](img/gridsearch_results_classifiers.png "GridSearchCV Classification Comparison")
-The best classifier boasting the highest test classification accuracy was again the RandomForestClassifier with a slightly improved accuracy of `95.66%` 
+The best classifier boasting the highest test classification accuracy was again the RandomForestClassifier with a slightly improved accuracy of `95.70%` 
 ##### Neural Network modeling
 I constructed and trained two distinct types of neural networks to improve classification results. Initially, I developed a simple network comprising a single layer of hidden units (`NN_Simple` in the chart), followed by a more complex network featuring three layers of hidden units with added regularization (`NN_Complex` in the chart). Subsequently, I conducted a GridSearchCV to fine-tune the parameters of the more complex network (`NN_GridSearchCV` in the chart). Here are the outcomes:<br>
 
 ![GridSearchCV Classification Comparison](img/results_final.png "Final Classification Comparison")
-I observed a small enhancement in the test accuracy of the more complex neural network model, achieving accuracy of `95.83%` (with a peak of `95.90%` during training on the test set). Both the more complex neural network model and its fine-tuned counterpart via `GridSearchCV` showcased superior performance of over `95.80%`, when compared to the other classification models, albeit not by substantial margins. It's worth noting that due to limitations in computational resources, I could only execute a partial version of the grid parameters I had planned to test. Consequently, further fine-tuning with additional grid parameters is expected to yield even greater improvements in the accuracy of the best model using neural networks
+I observed a modest improvement in the test accuracy of the more intricate neural network model, achieving an accuracy of `95.83%` (with a peak of `95.90%` during training on the test set). Both the complex neural network model and its fine-tuned counterpart via GridSearchCV demonstrated superior performance, surpassing the `95.80%` threshold when compared to other classification models that were covered earlier, albeit not significantly. It's noteworthy that due to computational constraints, I could only execute a partial exploration of grid parameters on the complex neural network model. Therefore, further fine-tuning with additional grid parameters is anticipated to yield even greater enhancements in accuracy for the optimal neural network model
 
 #### Feature Importance
 I employed two distinct methods to extract the most important features from the trained models - feature importance that was given directly from the fitted model, and permutation importance using `sklearn`'s permutation_importance method. Through our analysis, I identified the following features as playing the most significant role in this classification problem:
@@ -113,7 +116,7 @@ I employed two distinct methods to extract the most important features from the 
 
 #### Next steps
 * Follow up on the mentioned recommendations 
-* Improve the Neural Network model and fine-tune it to have higher accuracy of predicting satisfaction
+* Improve the complex Neural Network model by fine-tune it to have higher accuracy of predicting satisfaction
 * Explore the `shap` library to better understand feature importance, alongside the other feature importance methods I used above
 
 ### Outline of project
