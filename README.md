@@ -38,6 +38,14 @@ A full feature list can be found [here](./FEATURES.md)
 * The dataset exhibits a skew towards customers traveling for business, comprising over double (`69%`) the number of those traveling for personal reasons (`31%`)
 * The dataset maintains a balanced representation between economy (`44.84%`) and business class (`47.92%`) passengers. However, only `7.23%` of the airline passengers in the data set were flying economy plus
 * The dataset primarily concentrates on customers who took short to mid-range flights, with the majority of data collected from those traveling less than 4000 miles. Specifically, approximately `67.42%` of customers flew distances ranging from 1000 to 3000 miles
+* The target feature `satisfaction` is fairly balanced
+
+    |Class	     | Percentage share |
+    |:-----------|:---------------- |   
+    |sastisfied  |54.733%           |
+    |dissatisfied|45.267%           |
+
+    <img src="img/satisf_distribution.png" width="400">
 
 ### Methodology
 Exploratory Data Analysis:
@@ -46,7 +54,7 @@ Exploratory Data Analysis:
 * Exploring numerical features: their distribution, outliers analysis and correlation matrix
 * Exploring categorical features: their distribution, their breakdown vs the target variable 
 * Exploring customer survey features: their distribution, their breakdown vs the target variable
-* Exploring disloyal customers' survey features
+* Exploring disloyal and loyal customers' survey features and their breakdown vs satisfaction/dissatisfaction
 
 Classification Methods Used:
 * Neural Networks
