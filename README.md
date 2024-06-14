@@ -85,22 +85,26 @@ Classification Methods Used:
 ### Detailed Explanation of Results
 
 #### Modeling
+
+##### Preparing the data for model training
+We encoded the categorical variables with `OneHotEncoder` to preserve the ordinality of these features. Then, we scaled the numerical features with `StandardScaler`. Lastly, we split the data into a train and a validation (test) sets
+
 ##### Deciding on a scoring metric
 Given the fairly balanced distribution of satisfaction and dissatisfaction classes, and my prioritization of accurate classification over focusing on false-negatives or false-positives (recall or precision), I'll concentrate on the `accuracy` metric. Particularly, I'll assess the `test accuracy` against the dedicated test set to compare the performance of various classification models
 
 ##### Basic classification modeling
-The best classifier boasting the highest test classification accuracy was the RandomForestClassifier, achieving an accuracy of `95.54%`. Following closely in second place is SVM with a test accuracy of `94.0%`.
+The best classifier boasting the highest test classification accuracy was the RandomForestClassifier, achieving an accuracy of `95.43%`. Following closely in second place is SVM with a test accuracy of `94.2%`.<br>
 ![Basic Classification Models Performance Comparison](img/classification_results.png "Basic Classification Models Performance Comparison")
 ##### GridSearchCV with leading classification models
 I focused on the 4 top performing models from basic classification phase and ran GridSearchCV with different grid parameters in order to fine-tune the model training phase. Here are the results:<br>
 
-![GridSearchCV Classification Comparison](img/gridsearch_results_classifiers.png "GridSearchCV Classification Comparison")
-The best classifier boasting the highest test classification accuracy was again the RandomForestClassifier with a slightly improved accuracy of `95.70%` 
+![GridSearchCV Classification Comparison](img/gridsearch_results_classifiers.png "GridSearchCV Classification Comparison")<br>
+The best classifier boasting the highest test classification accuracy was again the RandomForestClassifier with an improved accuracy of `95.80%` 
 ##### Neural Network modeling
-I constructed and trained two distinct types of neural networks to improve classification results. Initially, I developed a simple network comprising a single layer of hidden units (`NN_Simple` in the chart), followed by a more complex network featuring three layers of hidden units with added regularization (`NN_Complex` in the chart). Subsequently, I conducted a GridSearchCV to fine-tune the parameters of the more complex network (`NN_GridSearchCV` in the chart). Here are the outcomes:<br>
+I constructed and trained two distinct types of neural networks to improve classification results. Initially, I developed a simple network comprising a single layer of hidden units (`NN_Simple` in the chart), followed by a more complex network featuring three layers of hidden units with added normalization (batch normalization) and regularization (`NN_Complex` in the chart). Subsequently, I conducted a GridSearchCV to fine-tune the parameters of the more complex network (`NN_GridSearchCV` in the chart). Here are the outcomes:<br>
 
-![GridSearchCV Classification Comparison](img/results_final.png "Final Classification Comparison")
-I observed a modest improvement in the test accuracy of the more intricate neural network model, achieving an accuracy of `95.83%` (with a peak of `95.90%` during training on the test set). Both the complex neural network model and its fine-tuned counterpart via GridSearchCV demonstrated superior performance, surpassing the `95.80%` threshold when compared to other classification models that were covered earlier, albeit not significantly. It's noteworthy that due to computational constraints, I could only execute a partial exploration of grid parameters on the complex neural network model. Therefore, further fine-tuning with additional grid parameters is anticipated to yield even greater enhancements in accuracy for the optimal neural network model
+![GridSearchCV Classification Comparison](img/results_final.png "Final Classification Comparison")<br>
+I observed a modest improvement in the test accuracy of the more complex neural network model, achieving an accuracy of `96.18%`. The fine-tuned counterpart via GridSearchCV demonstrated a slightly better performance, reaching `96.27%` test accuracy. Overall, the neural network models performed better when compared to other classification models that were covered earlier which didn't reach the `96.00%` mark. It's noteworthy that due to computational constraints, I could only execute a partial exploration of grid parameters on the complex neural network model. Therefore, further fine-tuning with additional grid parameters is anticipated to yield even greater enhancements in accuracy for the optimal neural network model
 
 #### Feature Importance
 I employed two distinct methods to extract the most important features from the trained models - feature importance that was given directly from the fitted model, and permutation importance using `sklearn`'s permutation_importance method. Through our analysis, I identified the following features as playing the most significant role in this classification problem:
@@ -120,8 +124,8 @@ I employed two distinct methods to extract the most important features from the 
 * Explore the `shap` library to better understand feature importance, alongside the other feature importance methods I used above
 
 ### Outline of project
-- [Link to capstone notebook](https://github.com/benharosh/berkeley_capstone/blob/master/capstone-final.ipynb)
-- [Link to capstone notebook on GitHub Dev](https://github.dev/benharosh/berkeley_capstone/blob/master/capstone-final.ipynb)
+- [Link to capstone notebook on GitHub Dev](https://github.dev/benharosh/berkeley_capstone/blob/master/capstone_final.ipynb)
+- [Link to capstone notebook](https://github.com/benharosh/berkeley_capstone/blob/master/capstone_final.ipynb) - have some issues with a small number of charts, please use the GitHub Dev link above to view them
 
 #### Contact and Further Information
 `benharosh@gmail.com`
