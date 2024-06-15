@@ -33,6 +33,9 @@ The dataset comprises 129,880 records, with a small number (~300) of missing val
 
 A full feature list can be found [here](./FEATURES.md)
 
+The target variable `satisfaction` is fairly balanced<br>
+![satisfaction](img/satisf_distribution_c.png "Satisfaction Distribution")<br>
+
 #### Data characteristics:
 * The dataset is slanted towards loyal customers - survey boasted over four times loyal customers (`81.69%`) than disloyal ones (`18.31%`)
 * The dataset exhibits a skew towards customers traveling for business, comprising over double (`69%`) the number of those traveling for personal reasons (`31%`)
@@ -46,7 +49,7 @@ Exploratory Data Analysis:
 * Exploring numerical features: their distribution, outliers analysis and correlation matrix
 * Exploring categorical features: their distribution, their breakdown vs the target variable 
 * Exploring customer survey features: their distribution, their breakdown vs the target variable
-* Exploring disloyal customers' survey features
+* Exploring customers survey features when broke down to loyal and disloyal customers
 
 Classification Methods Used:
 * Neural Networks
@@ -62,8 +65,8 @@ Classification Methods Used:
 ### Summary of Findings
 
 #### Findings
-* Air travelers who flew mid-range flights (1000-3000 miles) exhibited heightened levels of dissatisfaction compared to those on shorter or longer flights
-* Departure and arrival delays exceeding 20 minutes were found to correlate with increased dissatisfaction levels, contrasting with shorter delays. There was almost no dissatisfaction difference between departure and arrival delays, which seems reasonable since those are metrics that are highly correlated (over `90%`)to begin with   
+* Air travelers who flew mid-range flights (1000-2500 miles) exhibited heightened levels of dissatisfaction (`53.4%`) compared to those on shorter or longer flights (`34.8%`)
+* Departure and arrival delays exceeding 15 minutes were found to correlate with increased dissatisfaction levels, contrasting with shorter delays. There was almost no dissatisfaction difference between departure and arrival delays, which seems reasonable since those are metrics that are highly correlated (over `90%`)to begin with   
 * Loyal customers demonstrated significantly higher satisfaction rates compared to disloyal air passengers, highlighting the importance of customer loyalty
 * Customers flying Business Class reported a higher satisfaction rate of `71%`, surpassing the aggregated satisfaction average of `55%`
 * Customers traveling for personal reasons exhibited a lower satisfaction rate of `48%` compared to the aggregated satisfaction average of `55%`
@@ -72,7 +75,9 @@ Classification Methods Used:
 * Although rated high by many customers, cleanliness did not emerge as a significant indicative factor to determine satisfaction/dissatisfaction
 * Customers on personal travel were found had higher satisfaction rates
 * Ease of pre-flight service as online booking and customer support played a role in enhancing customer satisfaction
-* Customers aged between 40 and 63 exhibited a higher satisfaction percentage (`67%`) compared to the general average satisfaction rate (`55%`). Conversely, customers younger than 40 and those older than 63 expressed higher levels of dissatisfaction compared to the general average.
+* Customers aged between 40 and 60 exhibited a higher satisfaction percentage (`67%`) compared to the general average satisfaction rate (`55%`). Conversely, customers younger than 40 and those older than 63 expressed higher levels of dissatisfaction compared to the general average<br><br>
+![Age Satisfaction](img/age_satis.png "Age Satisfaction")<br>
+
 
 #### Recommendations
   - Given that disloyal customers exhibited a notably high dissatisfaction rate, albeit representing only `18.31%` of the dataset entries, it would be prudent to address this imbalance. Future surveys should focus on gathering more data from this specific group to gain deeper insights into the reasons behind their elevated dissatisfaction levels
